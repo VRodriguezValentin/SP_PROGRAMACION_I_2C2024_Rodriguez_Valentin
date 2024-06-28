@@ -163,6 +163,7 @@ def main():
                         os.system('cls')
                         print('¡ERROR! Se acabaron los intentos\n')
                         break
+                    color = color.capitalize()
                     os.system('cls')
 
                     patente = input('Formato: [XXXNNN]\nIngrese un patente: ')
