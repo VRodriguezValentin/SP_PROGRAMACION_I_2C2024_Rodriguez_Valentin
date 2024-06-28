@@ -147,12 +147,8 @@ def main():
                     os.system('cls')
 
                     modelo = input('Ingrese el modelo del vehiculo: ')
-                    if modelo != str or modelo != int or modelo != float:
-                        print('¡ERROR! El modelo del vehiculo no es valido')
-                        break
-                    else:
-                        if not modelo.isdigit():
-                            modelo = modelo.capitalize()
+                    if not modelo.isdigit():
+                        modelo = modelo.capitalize()
                     os.system('cls')
 
                     anio = ps.get_int('Ingrese el año: ','¡ERROR! El año no es valido', 1886, 2024, 3)
@@ -170,7 +166,7 @@ def main():
                     os.system('cls')
 
                     patente = input('Formato: [XXXNNN]\nIngrese un patente: ')
-                    patente_valido = e.Empleado.validar_patente(patente)
+                    patente_valido = v.Vehiculo.validar_patente(patente)
                     if not patente_valido:
                         os.system('cls')
                         print('¡ERROR! Patente no valida\n')
@@ -194,7 +190,7 @@ def main():
 
                     propietario_apellido_nombre = propietario_apellido + ' ' + propietario_nombre
                     
-                    print(e.Empleado.alta_empleado(lista_vehiculos, marca, modelo, anio, color, patente, propietario_apellido_nombre))
+                    print(v.Vehiculo.alta_vehiculo(lista_vehiculos, marca, modelo, anio, color, patente, propietario_apellido_nombre))
                 case '8':
                     pass
                 case '9':
