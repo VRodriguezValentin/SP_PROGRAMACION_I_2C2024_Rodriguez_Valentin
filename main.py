@@ -38,8 +38,8 @@ def main():
                             match opcion_vehiculo:
                                 case '1':
                                     print('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
-                                    for vehi in lista_vehiculos:
-                                        print(f'ID: {vehi['ID']} Marca: {vehi['Marca']} Modelo: {vehi['Modelo']} Año: {vehi['Anio']} Color: {vehi['Color']} Patente: {vehi['Patente']} Propietario: {vehi['Propietario']}\n')
+                                    for ve in lista_vehiculos:
+                                        print(f'ID: {ve['ID']} Marca: {ve['Marca']} Modelo: {ve['Modelo']} Año: {ve['Anio']} Color: {ve['Color']} Patente: {ve['Patente']} Propietario: {ve['Propietario']}\n')
                                     print('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n')
                                     break
                                 case '2':

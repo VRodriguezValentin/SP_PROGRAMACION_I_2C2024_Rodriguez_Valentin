@@ -414,7 +414,7 @@ def bubble_sort(lista: list, criterio, reversa: bool = False) -> list:
                     aux = lista[i]
                     lista[i] = lista[j]
                     lista[j] = aux
-        return lista
+    return lista
 
 def selection_sort(lista: list) -> list:
     # Tomo un elemento de la lista
