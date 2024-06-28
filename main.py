@@ -39,14 +39,14 @@ def main():
                                 case '1':
                                     print('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
                                     for vehi in lista_vehiculos:
-                                        print(f'ID: {vehi.id} Marca: {vehi.marca} Modelo: {vehi.modelo} Año: {vehi.anio} Color: {vehi.color} Patente: {vehi.patente} Propietario: {vehi.propietario}\n')
+                                        print(f'ID: {vehi['ID']} Marca: {vehi['Marca']} Modelo: {vehi['Modelo']} Año: {vehi['Anio']} Color: {vehi['Color']} Patente: {vehi['Patente']} Propietario: {vehi['Propietario']}\n')
                                     print('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n')
                                     break
                                 case '2':
                                     print('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
-                                    lista_vehiculos_ordenada = ps.bubble_sort(lista_vehiculos, lambda x: x.marca)
+                                    lista_vehiculos_ordenada = ps.bubble_sort(lista_vehiculos, lambda x: x['Marca'])
                                     for vehi in lista_vehiculos_ordenada:
-                                                print(f'ID: {vehi.id} Marca: {vehi.marca} Modelo: {vehi.modelo} Año: {vehi.anio} Color: {vehi.color} Patente: {vehi.patente} Propietario: {vehi.propietario}\n')
+                                        print(f'ID: {vehi['ID']} Marca: {vehi['Marca']} Modelo: {vehi['Modelo']} Año: {vehi['Anio']} Color: {vehi['Color']} Patente: {vehi['Patente']} Propietario: {vehi['Propietario']}\n')
                                     print('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n')
                                     break
                                 case _:

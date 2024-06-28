@@ -20,7 +20,7 @@ class Vehiculo:
         for v in vehiculos_data:
             vehiculo_aux = Vehiculo(v['Marca'],v['Modelo'],v['Anio'],v['Color'],v['Patente'],v['Propietario'])
             vehiculo_aux.id = v['ID']
-            vehiculos.append(vehiculo_aux)
+            vehiculos.append({'ID': vehiculo_aux.id, 'Marca': vehiculo_aux.marca, 'Modelo': vehiculo_aux.modelo, 'Anio': vehiculo_aux.anio, 'Color': vehiculo_aux.color, 'Patente': vehiculo_aux.patente, 'Propietario': vehiculo_aux.propietario})
         return vehiculos
 
     def validar_patente(patente) -> bool:
@@ -32,7 +32,7 @@ class Vehiculo:
 
     def alta_vehiculo(lista, marca, modelo, anio, color, patente, propietario_apellido_nombre) -> str:
         nuevo_vehiculo = Vehiculo(marca, modelo, anio, color, patente, propietario_apellido_nombre)
-        lista.append([nuevo_vehiculo.id, nuevo_vehiculo.marca, nuevo_vehiculo.modelo, nuevo_vehiculo.anio, nuevo_vehiculo.color, nuevo_vehiculo.patente, nuevo_vehiculo.propietario])
+        lista.append({'ID': nuevo_vehiculo.id, 'Marca': nuevo_vehiculo.marca, 'Modelo': nuevo_vehiculo.modelo, 'Anio': nuevo_vehiculo.anio, 'Color': nuevo_vehiculo.color, 'Patente': nuevo_vehiculo.patente, 'Propietario': nuevo_vehiculo.propietario})
         return f'Alta de vehiculo exitosa!'
     
     def guardar_vehiculo_db(path, data) -> str:
