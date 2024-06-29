@@ -97,5 +97,23 @@
         "Color": "Blanco",
         "Patente": "FFF444",
         "Propietario": "Argento Pepe"
+    },
+    {
+        "ID": 12,
+        "Marca": "Fiat",
+        "Modelo": "Palio",
+        "Anio": 2015,
+        "Color": "Negro",
+        "Patente": "OKK888",
+        "Propietario": "Rodriguez Gabriel"
+    },
+    {
+        "ID": 13,
+        "Marca": "Fiat",
+        "Modelo": "Punto",
+        "Anio": 2010,
+        "Color": "Rosa",
+        "Patente": "JKL678",
+        "Propietario": "Gonzales Pepe"
     }
 ]

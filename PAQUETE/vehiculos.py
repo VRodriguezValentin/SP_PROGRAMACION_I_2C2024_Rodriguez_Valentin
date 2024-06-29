@@ -38,3 +38,25 @@ class Vehiculo:
     def guardar_vehiculo_db(path, data) -> str:
         arch.escribir_json(path, data)
         return 'Archivo guardado con exito!'
+    
+    def baja_vehiculo(lista, patente) -> str:
+        for v in lista:
+            if patente == v['Patente']:
+                lista.remove(v)
+                return f'Vehiculo {v['Patente']} dado de baja con exito!'
+        return '¡ERROR! No se pudo dar de baja el vehiculo'
+    
+    def modificacion_vehiculo(lista, patente, color = None):
+        contador_cambios = 0
+
+        if color != None:
+            for vehi in lista:
+                if patente == vehi['Patente']:
+                    vehi['Color'] = color
+                    contador_cambios += 1
+                    break
+        
+        if contador_cambios > 0:
+            return 'Vehiculo modificado con exito!'
+        else:
+            return 'No se realizaron modificaciones.'
