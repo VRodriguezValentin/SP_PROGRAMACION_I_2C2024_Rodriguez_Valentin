@@ -118,17 +118,17 @@ def get_int(mensaje: str = 'Ingrese entero: ', mensaje_error: str = '¡ERROR!', 
             if numero >= minimo:
                 return numero
             else:
-                print(mensaje_error)
+                print(f'{mensaje_error}\n')
         elif minimo == None:
             if numero <= maximo:
                 return numero
             else:
-                print(mensaje_error)
+                print(f'{mensaje_error}\n')
         else:
             if minimo <= numero and numero <= maximo:
                 return numero
             else:
-                print(mensaje_error)
+                print(f'{mensaje_error}\n')
     elif reintentos == None:
         while True:
             numero = input(mensaje)
@@ -139,17 +139,17 @@ def get_int(mensaje: str = 'Ingrese entero: ', mensaje_error: str = '¡ERROR!', 
                 if numero >= minimo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
             elif minimo == None:
                 if numero <= maximo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
             else:
                 if minimo <= numero and numero <= maximo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
     else:
         for numero in range(reintentos):
             numero = input(mensaje)
@@ -162,17 +162,17 @@ def get_int(mensaje: str = 'Ingrese entero: ', mensaje_error: str = '¡ERROR!', 
                 if numero >= minimo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
             elif minimo == None:
                 if numero <= maximo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
             else:
                 if minimo <= numero and numero <= maximo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
         reintentos -= 1
     return None
 
@@ -197,17 +197,17 @@ def get_float(mensaje: str = 'Ingrese flotante: ', mensaje_error: str = '¡ERROR
             if numero >= minimo:
                 return numero
             else:
-                print(mensaje_error)
+                print(f'{mensaje_error}\n')
         elif minimo == None:
             if numero <= maximo:
                 return numero
             else:
-                print(mensaje_error)
+                print(f'{mensaje_error}\n')
         else:
             if minimo <= numero and numero <= maximo:
                 return numero
             else:
-                print(mensaje_error)
+                print(f'{mensaje_error}\n')
     elif reintentos == None:
         while True:
             numero = input(mensaje)
@@ -218,17 +218,17 @@ def get_float(mensaje: str = 'Ingrese flotante: ', mensaje_error: str = '¡ERROR
                 if numero >= minimo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
             elif minimo == None:
                 if numero <= maximo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
             else:
                 if minimo <= numero and numero <= maximo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
     else:
         for numero in range(reintentos):
             numero = input(mensaje)
@@ -241,17 +241,17 @@ def get_float(mensaje: str = 'Ingrese flotante: ', mensaje_error: str = '¡ERROR
                 if numero >= minimo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
             elif minimo == None:
                 if numero <= maximo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
             else:
                 if minimo <= numero and numero <= maximo:
                     return numero
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
         reintentos -= 1
     return None
 
@@ -276,7 +276,7 @@ def get_str(mensaje: str = 'Ingrese texto: ', mensaje_error: str = '¡ERROR!', l
             if len(texto) <= longitud and not any(letra.isdigit() for letra in texto):
                 return texto
             else:
-                print(mensaje_error)
+                print(f'{mensaje_error}\n')
     elif reintentos == None:
         while True:
             if longitud == None:
@@ -290,14 +290,14 @@ def get_str(mensaje: str = 'Ingrese texto: ', mensaje_error: str = '¡ERROR!', l
                 if len(texto) <= longitud and not any(letra.isdigit() for letra in texto):
                     return texto
                 else:
-                    print(mensaje_error)
+                    print(f'{mensaje_error}\n')
     else:
         for texto in range(reintentos):
             texto = str(input(mensaje))
             if len(texto) <= longitud and not any(letra.isdigit() for letra in texto):
                 return texto
             else:
-                print(mensaje_error)
+                print(f'{mensaje_error}\n')
                 reintentos -= 1
         return None
 

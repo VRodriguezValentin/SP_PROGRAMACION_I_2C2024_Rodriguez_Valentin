@@ -16,9 +16,7 @@ class Empleado:
     def id_mas_alto(lista_empleados):
         lista_ids = []
         for emp in lista_empleados:
-            print(emp[0])
             lista_ids.append(emp[0])
-        print(lista_ids)
         id_max = mfrs.my_reduce(lambda a, b: a if int(a) > int(b) else b ,lista_ids)
         Empleado.id_empleado = int(id_max) + 1
 

@@ -46,8 +46,29 @@ class Vehiculo:
                 return f'Vehiculo {v['Patente']} dado de baja con exito!'
         return '¡ERROR! No se pudo dar de baja el vehiculo'
     
-    def modificacion_vehiculo(lista, patente, color = None):
+    def modificacion_vehiculo(lista, patente, marca, modelo, anio, color, propietario = None):
         contador_cambios = 0
+
+        if marca != None:
+            for vehi in lista:
+                if patente == vehi['Patente']:
+                    vehi['Marca'] = marca
+                    contador_cambios += 1
+                    break
+
+        if modelo != None:
+            for vehi in lista:
+                if patente == vehi['Patente']:
+                    vehi['Modelo'] = modelo
+                    contador_cambios += 1
+                    break
+
+        if anio != None:
+            for vehi in lista:
+                if patente == vehi['Patente']:
+                    vehi['Anio'] = anio
+                    contador_cambios += 1
+                    break
 
         if color != None:
             for vehi in lista:
@@ -55,8 +76,29 @@ class Vehiculo:
                     vehi['Color'] = color
                     contador_cambios += 1
                     break
-        
+
+        if propietario != None:
+            for vehi in lista:
+                if patente == vehi['Patente']:
+                    vehi['Propietario'] = propietario
+                    contador_cambios += 1
+                    break
+
         if contador_cambios > 0:
             return 'Vehiculo modificado con exito!'
         else:
             return 'No se realizaron modificaciones.'
+        
+    def leer_reparaciones(path):
+        with open(path, 'r') as archivo:
+            lineas = archivo.readlines()
+        reparaciones = []
+        for linea in lineas:
+            datos = linea.strip().split(';')
+            reparaciones.append({
+                'ID_EMPLEADO': datos[0],
+                'ID_VEHICULO': datos[1],
+                'ID_REPARACION': datos[2],
+                'FECHA_HORA_REPARACION': datos[3]
+            })
+        return reparaciones
