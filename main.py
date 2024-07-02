@@ -10,7 +10,7 @@ from PAQUETE.archivos import escribir_txt
 def main():
 
     opciones = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18']
-    opciones_menu = ['Ver Vehiculos', 'Ver Empleados', 'Alta Empleado', 'Baja Empleado', 'Modificacion Empleado', 'Guardar Empleado', 'Alta Vehiculo', 'Baja Vehiculo', 'Modificacion Vehiculo', 'Guardar Vehiculo','Reparar Vehiculo', 'Ver Reparaciones', 'Filtrar Vehiculos por Color (16)']
+    opciones_menu = ['Ver Vehiculos', 'Ver Empleados', 'Alta Empleado', 'Baja Empleado', 'Modificacion Empleado', 'Guardar Empleado', 'Alta Vehiculo', 'Baja Vehiculo', 'Modificacion Vehiculo', 'Guardar Vehiculo','Reparar Vehiculo', 'Ver Reparaciones', 'Ingresos Totales por Reparacion', 'Reparacion mas Realizada', 'Buscar Vehiculo por patente','Filtrar Vehiculos por Color']
     lista_vehiculos = v.Vehiculo.listar_vehiculos('vehiculos.json')
     lista_empleados = e.Empleado.listar_empleados('empleados.csv')
     tipos_reparacion = [{'ID': 1000,    'Descripcion': 'Mantenimiento y cambio de aceite',              'Coste': 5500},
@@ -363,6 +363,7 @@ def main():
                                 print('¡ERROR! El vehiculo no se encuentra registrado\n')
                                 break
                 case '9':
+                    os.system('cls')
                     print('╔══════════════════════════════════════════════════╗\n\t      Modificacion Vehiculo\n╚══════════════════════════════════════════════════╝\n')
                     cambiar_marca   = False
                     cambiar_modelo  = False
@@ -624,11 +625,111 @@ def main():
                                     print(f'Reparación: {reparacion_desc}')
                                     print(f'Vehículo: {marca_vehiculo}, {modelo_vehiculo}, {patente_vehiculo}\n')
                 case '13':
-                    pass
+                    lista_reparaciones_realizadas = v.Vehiculo.leer_reparaciones('reparaciones.txt')
+                    suma_id_1000 = 0
+                    suma_id_1100 = 0
+                    suma_id_1200 = 0
+                    suma_id_1300 = 0
+                    suma_id_1400 = 0
+
+                    for reparacion in lista_reparaciones_realizadas:
+                        id_reparacion = reparacion['ID_REPARACION']
+
+                        id_existente = False
+                        for repa in tipos_reparacion:
+                            if int(id_reparacion) == int(repa['ID']):
+                                id_existente = True
+                                reparacion_coste = repa['Coste']
+                                break
+
+                        if not id_existente:
+                            print('¡ERROR! La reparacion no se encuentra registrada\n')
+                            break
+                        else:
+                            if id_reparacion == '1000':
+                                suma_id_1000 += reparacion_coste
+                            elif id_reparacion == '1100':
+                                suma_id_1100 += reparacion_coste
+                            elif id_reparacion == '1200':
+                                suma_id_1200 += reparacion_coste
+                            elif id_reparacion == '1300':
+                                suma_id_1300 += reparacion_coste
+                            elif id_reparacion == '1400':
+                                suma_id_1400 += reparacion_coste
+                            
+                    print(f'Ingreso total reparacion 1000: ${suma_id_1000}\n')
+                    print(f'Ingreso total reparacion 1100: ${suma_id_1100}\n')
+                    print(f'Ingreso total reparacion 1200: ${suma_id_1200}\n')
+                    print(f'Ingreso total reparacion 1300: ${suma_id_1300}\n')
+                    print(f'Ingreso total reparacion 1400: ${suma_id_1400}\n')
+
                 case '14':
-                    pass
+                    lista_reparaciones_realizadas = v.Vehiculo.leer_reparaciones('reparaciones.txt')
+                    lista_repa_cant = []
+                    cant_id_1000 = 0
+                    cant_id_1100 = 0
+                    cant_id_1200 = 0
+                    cant_id_1300 = 0
+                    cant_id_1400 = 0
+
+                    for reparacion in lista_reparaciones_realizadas:
+                        id_reparacion = reparacion['ID_REPARACION']
+
+                        id_existente = False
+                        for repa in tipos_reparacion:
+                            if int(id_reparacion) == int(repa['ID']):
+                                id_existente = True
+                                reparacion_coste = repa['Coste']
+                                break
+
+                        if not id_existente:
+                            print('¡ERROR! La reparacion no se encuentra registrada\n')
+                            break
+                        else:
+                            if id_reparacion == '1000':
+                                cant_id_1000 += 1
+                            elif id_reparacion == '1100':
+                                cant_id_1100 += 1
+                            elif id_reparacion == '1200':
+                                cant_id_1200 += 1
+                            elif id_reparacion == '1300':
+                                cant_id_1300 += 1
+                            elif id_reparacion == '1400':
+                                cant_id_1400 += 1
+                            
+                    lista_repa_cant.append([1000, cant_id_1000])
+                    lista_repa_cant.append([1100, cant_id_1100])
+                    lista_repa_cant.append([1200, cant_id_1200])
+                    lista_repa_cant.append([1300, cant_id_1300])
+                    lista_repa_cant.append([1400, cant_id_1400])
+
+                    mayor_cant_repa = mfrs.my_reduce(lambda a, b: a if a[1] > b[1] else b, lista_repa_cant)
+                    
+                    for repa in tipos_reparacion:
+                        if mayor_cant_repa[0] == repa['ID']:
+                            print(f'ID: {repa['ID']}, Descripcion: {repa["Descripcion"]}, Coste: {repa["Coste"]}, Cantidad: {mayor_cant_repa[1]}')
+                            break
+
                 case '15':
-                    pass
+                    os.system('cls')
+                    print('╔══════════════════════════════════════════════════╗\n\t      Buscar Vehiculo\n╚══════════════════════════════════════════════════╝\n')
+                    patente_aux = input('Formato: [XXXNNN]\nIngrese un patente: ')
+                    patente_valido = v.Vehiculo.validar_patente(patente_aux)
+                    if not patente_valido:
+                        os.system('cls')
+                        print('¡ERROR! Patente no valida\n')
+                    else:
+                        patente_existente = False
+                        for vehi in lista_vehiculos:
+                            if patente_aux == vehi['Patente']:
+                                patente_existente = True
+                                break
+                        if not patente_existente:
+                            print('¡ERROR! El vehiculo no se encuentra registrado\n')
+                        else:
+                            os.system('cls')
+                            print(f'ID: {vehi['ID']} Marca: {vehi['Marca']} Modelo: {vehi['Modelo']} Año: {vehi['Anio']} Color: {vehi['Color']} Patente: {patente_aux} Propietario: {vehi['Propietario']}\n')
+
                 case '16':
                     opciones_filtro_color = ['0','1','2','3','4','5','6','7','8','9','10','11']
                     opciones_filtro_color_desc = ['Negro', 'Blanco', 'Gris', 'Plateado', 'Rojo', 'Naranja', 'Amarillo', 'Violeta', 'Rosa', 'Azul', 'Verde']
