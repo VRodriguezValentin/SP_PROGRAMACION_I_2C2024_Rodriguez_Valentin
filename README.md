@@ -129,16 +129,9 @@ Vehículo: [Marca], [Modelo], [Matrícula].
 
 ---
 
-💡 **Tip final:** organizá tu código en módulos reutilizables y asegurate de probar todos los casos borde.
-
----
-
 📂 Archivos utilizados:
 
 - `vehiculos.json` 📄
 - `empleados.csv` 📄
 - `reparaciones.txt` 🧾
 
----
-
-👨‍💻 ¡Mucho éxito programando este sistema! 🚀
